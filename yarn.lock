@@ -849,6 +849,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lib/database@workspace:lib/database":
+  version: 0.0.0-use.local
+  resolution: "@lib/database@workspace:lib/database"
+  dependencies:
+    "@lib/config": 0.0.1
+    "@prisma/client": ~5.4.2
+    "@rollup/plugin-node-resolve": ~15.1.0
+    "@rollup/plugin-terser": ~0.4.3
+    "@rollup/plugin-typescript": ~11.1.2
+    rollup: ~3.23.0
+    rollup-plugin-dts: ~5.2.0
+    typescript: ~5.1.6
+  languageName: unknown
+  linkType: soft
+
 "@lib/fetch@workspace:lib/fetch, @lib/fetch@~0.0.1":
   version: 0.0.0-use.local
   resolution: "@lib/fetch@workspace:lib/fetch"
@@ -1093,6 +1108,27 @@ __metadata:
     picocolors: ^1.0.0
     tslib: ^2.6.0
   checksum: 24e04c121269317d259614cd32beea3af38277151c4002df5883c4be920b8e3490bb897748e844f9d46bf68230f86dabd4e8f093773130e7e60529a769a132fc
+  languageName: node
+  linkType: hard
+
+"@prisma/client@npm:~5.4.2":
+  version: 5.4.2
+  resolution: "@prisma/client@npm:5.4.2"
+  dependencies:
+    "@prisma/engines-version": 5.4.1-2.ac9d7041ed77bcc8a8dbd2ab6616b39013829574
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: e01aebad95a6168668a214784e036ba4d6c6ac2c7eff35c7c3b1b729d2fc70b7f1addfce8a8550b24ffadf9be45538f2bd8a2257dfac9ec18d1d900437bf6660
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:5.4.1-2.ac9d7041ed77bcc8a8dbd2ab6616b39013829574":
+  version: 5.4.1-2.ac9d7041ed77bcc8a8dbd2ab6616b39013829574
+  resolution: "@prisma/engines-version@npm:5.4.1-2.ac9d7041ed77bcc8a8dbd2ab6616b39013829574"
+  checksum: 493f84e8856bf214c64177f879f7009740156492a3e1b42cd02e91eec273a5d290bfdde9ca32c361cd8a0616a33d903163582a51e44a79a6b6b318f72130517f
   languageName: node
   linkType: hard
 
