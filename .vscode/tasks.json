@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "watch:libs",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: watch:libs",
+      "detail": "yarn workspaces foreach -j unlimited -pi --from '@lib/*' run rollup:watch"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "yarn rollup:libs && yarn build:api"
+    },
+    {
+      "type": "npm",
+      "script": "build:libs",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build:libs",
+      "detail": "yarn workspaces foreach -ti --from '@lib/*' run rollup"
+    },
+    {
+      "type": "npm",
+      "script": "build:api",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build:api",
+      "detail": "yarn workspace @package/api run build"
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": [],
+      "label": "npm: lint",
+      "detail": "yarn lint:libs && yarn lint:api"
+    }
+  ]
+}

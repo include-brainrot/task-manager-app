@@ -1,0 +1,37 @@
+name: Build API
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  build:
+    name: Build Project
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [18.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-v3-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Packages
+        run: yarn install --immutable
+
+      - name: Lint Repository
+        run: yarn lint
+
+      - name: Build Libraries
+        run: yarn build:libs
+
+      - name: Build API
+        run: yarn build:api

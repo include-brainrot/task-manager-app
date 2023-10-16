@@ -1,0 +1,12 @@
+## Node
+/**/node_modules
+
+## Developer Tooling
+.rollup.cache/
+.eslintrc.js
+rollup.config.js
+
+## Build/Test
+/**/coverage/
+/**/dist/
+**.d.ts

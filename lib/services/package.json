@@ -1,0 +1,58 @@
+{
+  "private": true,
+  "name": "@lib/services",
+  "version": "0.0.1",
+  "author": "Elias Mawa <elias@mawa.dev>",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./core": "./dist/cjs/service/core/index.js",
+    "./local": "./dist/cjs/service/local/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "core": [
+        "./dist/cjs/service/core/index.d.ts"
+      ],
+      "local": [
+        "./dist/cjs/service/local/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "echo 'lint @lib/services' && eslint . --ext .ts",
+    "prettier": "yarn prettier --write",
+    "clean": "",
+    "rollup": "echo 'bundle @lib/services' && rollup -c --bundleConfigAsCjs",
+    "rollup:watch": "nodemon --watch 'src/' --delay 200ms -e ts --exec yarn rollup",
+    "build": "NODE_ENV=production yarn build:cjs",
+    "build:cjs": "echo 'build @lib/services:cjs' && tsc",
+    "build:watch": "nodemon --watch 'src/' -e ts --exec yarn build",
+    "test": "NODE_ENV=production jest"
+  },
+  "dependencies": {
+    "@lib/config": "~0.0.1",
+    "@lib/fetch": "~0.0.1",
+    "@lib/logging": "~0.0.1",
+    "@lib/shared": "~0.0.1",
+    "@lib/utility": "~0.0.1",
+    "date-fns": "~2.30.0",
+    "date-fns-tz": "~2.0.0",
+    "fast-xml-parser": "~4.2.6",
+    "typescript": "~5.1.6",
+    "yup": "~1.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "~15.1.0",
+    "@rollup/plugin-terser": "~0.4.3",
+    "@rollup/plugin-typescript": "~11.1.2",
+    "rollup": "~3.23.0",
+    "rollup-plugin-dts": "~5.2.0",
+    "typescript": "~5.1.6"
+  }
+}

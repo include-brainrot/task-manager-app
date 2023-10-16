@@ -1,0 +1,28 @@
+volumes:
+  data-postgres:
+  data-meilisearch:
+
+services:
+  db-meilisearch:
+    image: getmeili/meilisearch:latest
+    ports:
+      - "${MEILI_PORT:-5432}:${MEILI_PORT:-5432}"
+    # volumes:
+    #   - data-meilisearch:/path:rw
+    restart: always
+    env_file:
+      - .env.dev
+    # environment:
+    #   - "MEILI_MASTER_KEY=${MEILISEARCH_PRIVATE_KEY}"
+
+  db-postgres:
+    image: postgres:11.21-bullseye
+    ports:
+      - "${POSTGRES_PORT:-5432}:${POSTGRES_PORT:-5432}"
+    # volumes:
+    #   - data-postgres:/path:rw
+    restart: always
+    env_file:
+      - .env.dev
+    # environment:
+    #   - "LICENSE=accept"
