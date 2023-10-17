@@ -2,7 +2,7 @@
   "private": true,
   "name": "task-manager-app",
   "version": "0.0.1",
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@3.6.4",
   "license": "GPL-3.0",
   "author": "Elias Mawa <elias@mawa.dev>",
   "homepage": "https://github.com/include-brainrot/task-manager-app#readme",
