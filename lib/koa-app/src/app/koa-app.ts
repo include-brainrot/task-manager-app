@@ -4,11 +4,6 @@ import KoaRouter from "koa-router";
 import { BaseError, ClientError, ServerError, logger } from "@lib/logging";
 import { CLIENT_ERROR, SERVER_ERROR } from "@lib/utility";
 import { ResolverContext, RootService, SessionContext } from "@lib/services";
-import { OdbcError } from "odbc";
-
-// const CLR = "\x1b[0m";
-// const LC = "\x1b[96m"; // Light Cyan
-// const LM = "\x1b[95m"; // Light Magenta
 
 export type KoaAppOptions = {
   is_production: boolean;
@@ -46,7 +41,6 @@ export class KoaApp {
         ctx.state.rootService.logger.startTrace(`${ctx.method}: ${ctx.path}`);
         await next();
 
-        // NOTE: Throw 404 exception if response body is not set
         if (!ctx.body) {
           throw new ClientError({
             message: CLIENT_ERROR.NOT_FOUND.message,
@@ -56,29 +50,12 @@ export class KoaApp {
 
         ctx.state.rootService.logger.endTrace(`${ctx.method}: ${ctx.path}`);
       } catch (err: unknown) {
-        // NOTE: Log exception and bubble to error handler
         if (err instanceof BaseError) {
           ctx.state.rootService.logger.pushError(`${ctx.method}: ${ctx.path}`, {
             message: err.message,
             status: err.status_code,
           });
-        } else if ((err as { odbcErrors: OdbcError[] }).odbcErrors) {
-          const errors = (err as { odbcErrors: OdbcError[] }).odbcErrors;
-          if (!errors.length) {
-            throw new ServerError({
-              message: SERVER_ERROR.INTERNAL.message,
-              status_code: SERVER_ERROR.INTERNAL.status,
-              internal_message: errors,
-            });
-          }
-
-          ctx.state.rootService.logger.pushError(`${ctx.method}: ${ctx.path}`, {
-            message: errors[0].message,
-            // status: errors[0].code,
-            status: SERVER_ERROR.INTERNAL.status,
-          });
         }
-
         throw err;
       }
     });
