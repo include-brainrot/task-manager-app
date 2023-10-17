@@ -38,12 +38,15 @@
     "build": "yarn rollup:libs && yarn build:api",
     "build:libs": "yarn workspaces foreach -ti --from '@lib/*' run rollup",
     "build:api": "yarn workspace @package/api run build",
+    "build:web": "yarn workspace @package/web run build",
     "rollup:libs": "yarn workspaces foreach -ti --from '@lib/*' run rollup",
     "rollup:watch": "yarn workspaces foreach -j unlimited -pi --from '@lib/*' run rollup:watch",
     "watch:libs": "yarn workspaces foreach -j unlimited -pi --from '@lib/*' run rollup:watch",
     "watch:api": "yarn workspace @package/api run watch",
     "serve:api": "yarn workspace @package/api run serve",
-    "start:api": "yarn workspace @package/api run start"
+    "start:api": "yarn workspace @package/api run start",
+    "watch:web": "yarn workspace @package/web run watch",
+    "start:web": "yarn workspace @package/web run start"
   },
   "dependencies": {
     "dotenv": "~16.3.1",
