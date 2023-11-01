@@ -38,7 +38,7 @@ const app = new KoaApp({
    * Middleware
    *************************************/
 
-  app.base_server.use(
+  app.base_server.use( 
     ErrorMiddleware({
       print_errors: api_config.print_errors,
       print_logs: api_config.print_logs,
