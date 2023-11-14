@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "@lib/config",
+  "version": "0.0.1",
+  "author": "Elias Mawa <elias@mawa.dev>",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "scripts": {
+    "lint": "echo 'lint @lib/config' && eslint . --ext .ts",
+    "prettier": "yarn prettier --write",
+    "rollup": "echo 'bundle @lib/config' && rollup -c --bundleConfigAsCjs",
+    "rollup:watch": "nodemon --watch 'src/' --delay 200ms -e ts --exec yarn rollup",
+    "build": "NODE_ENV=production yarn build:cjs",
+    "build:cjs": "echo 'build @lib/config:cjs' && tsc",
+    "build:watch": "nodemon --watch 'src/' -e ts --exec yarn build",
+    "test": "NODE_ENV=production jest"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "~25.0.7",
+    "@rollup/plugin-json": "~6.0.1",
+    "@rollup/plugin-node-resolve": "~15.2.3",
+    "@rollup/plugin-terser": "~0.4.4",
+    "@rollup/plugin-typescript": "~11.1.5",
+    "rollup": "~4.3.0",
+    "rollup-plugin-dts": "~6.1.0",
+    "typescript": "~5.2.2"
+  }
+}

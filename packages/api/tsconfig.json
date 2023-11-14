@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+
+    /* lib options */
+    "target": "es2022",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "checkJs": false,
+
+    /* build options */
+    "outDir": "./dist/cjs",
+    "noEmit": false,
+    // "allowJs": true,
+    // "checkJs": true,
+
+    /* other */
+    "lib": ["es2022"]
+  },
+  "include": ["./src/**/*.ts", "./typings/**/*.d.ts", "../../typings/**/*.d.ts"]
+}

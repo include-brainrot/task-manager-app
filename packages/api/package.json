@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "@package/api",
+  "version": "0.0.1",
+  "author": "Elias Mawa <elias@mawa.dev>",
+  "scripts": {
+    "lint": "echo 'lint @package/api' && eslint . --ext .ts",
+    "prettier": "yarn prettier --write",
+    "build": "yarn build:cjs",
+    "build:cjs": "echo 'building @package/api:cjs' && yarn tsc --project tsconfig.build.json",
+    "watch": "echo 'watch @package/api' && ts-node-dev --project tsconfig.build.json --files --respawn ./src/server.ts",
+    "serve": "echo 'serve @package/api' && ts-node ./src/server.ts",
+    "start": "echo 'start @package/api' && node ./dist/cjs/server.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@lib/config": "workspace:~",
+    "@lib/koa-service": "workspace:~",
+    "@lib/log-service": "workspace:~",
+    "@lib/services": "workspace:~",
+    "@lib/shared": "workspace:~"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "~15.2.3",
+    "@rollup/plugin-terser": "~0.4.4",
+    "@rollup/plugin-typescript": "~11.1.5",
+    "rollup": "~4.3.0",
+    "rollup-plugin-dts": "~6.1.0",
+    "ts-node": "~10.9.1",
+    "ts-node-dev": "~2.0.0",
+    "typescript": "~5.2.2"
+  }
+}

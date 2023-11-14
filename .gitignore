@@ -1,0 +1,32 @@
+## Configuration
+.env
+.env.*
+!.env.local
+!.env.*.example
+
+## Rollup
+/**/.rollup.cache/
+rollup.config-*
+
+## Node
+/**/node_modules/
+
+## Build/Test
+/docker/data/
+/**/dist/
+/**/coverage/
+
+## Other
+/.ignore/*
+/.vscode/*
+!/.vscode/tasks.json
+
+## Yarn
+/.yarn/*
+!/.yarn/patches
+!/.yarn/plugins
+!/.yarn/releases
+!/.yarn/sdks
+
+# !/.yarn/cache
+/.pnp.*

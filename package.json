@@ -1,30 +1,30 @@
 {
   "private": true,
-  "name": "task-manager-app",
-  "version": "3.6.4",
-  "packageManager": "yarn@3.6.4",
-  "license": "GPL-3.0",
-  "author": "Elias Mawa <elias@mawa.dev>",
-  "homepage": "https://github.com/miniaxolotl/task-manager-app#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/miniaxolotl/task-manager-app.git"
-  },
-  "bugs": {
-    "url": "https://github.com/miniaxolotl/task-manager-app/issues"
-  },
+  "name": "koa-next-template",
+  "version": "0.0.1",
   "engines": {
     "node": ">=18.16.1 <19.0.0"
   },
+  "packageManager": "yarn@4.0.1",
+  "author": "Elias Mawa <elias@mawa.dev>",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/miniaxolotl/koa-next-template#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miniaxolotl/koa-next-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miniaxolotl/koa-next-template/issues"
+  },
   "workspaces": [
-    "lib/*",
+    "libs/*",
     "packages/*",
     "scripts/*"
   ],
   "scripts": {
     "/** @linting */": "",
     "lint": "yarn lint:libs && yarn lint:api",
-    "lint:libs": "yarn workspaces foreach -pti --from '@lib/*' run lint",
+    "lint:libs": "yarn workspaces foreach -pti --from '@lib/*' -W run lint",
     "lint:api": "yarn workspace @package/api run lint",
     "/** @services */": "",
     "service:start": "docker-compose up -d",
@@ -32,16 +32,16 @@
     "services:start": "yarn service:start database-db2",
     "services:stop": "yarn service:stop database-db2",
     "/** @testing */": "",
-    "test:libs": "yarn workspaces foreach -pti --from '@lib/*' run test",
+    "test:libs": "yarn workspaces foreach -pti --from '@lib/*' -W run test",
     "test:api": "yarn workspace @package/api run test",
     "/** @building */": "",
     "build": "yarn rollup:libs && yarn build:api",
-    "build:libs": "yarn workspaces foreach -ti --from '@lib/*' run rollup",
+    "build:libs": "yarn workspaces foreach -ti --from '@lib/*' -W run rollup",
     "build:api": "yarn workspace @package/api run build",
     "build:web": "yarn workspace @package/web run build",
-    "rollup:libs": "yarn workspaces foreach -ti --from '@lib/*' run rollup",
-    "rollup:watch": "yarn workspaces foreach -j unlimited -pi --from '@lib/*' run rollup:watch",
-    "watch:libs": "yarn workspaces foreach -j unlimited -pi --from '@lib/*' run rollup:watch",
+    "rollup:libs": "yarn workspaces foreach -ti --from '@lib/*' -W run rollup",
+    "rollup:watch": "yarn workspaces foreach -j unlimited -pi --from '@lib/*' -W run rollup:watch",
+    "watch:libs": "yarn workspaces foreach -j unlimited -pi --from '@lib/*' -W run rollup:watch",
     "watch:api": "yarn workspace @package/api run watch",
     "serve:api": "yarn workspace @package/api run serve",
     "start:api": "yarn workspace @package/api run start",
@@ -54,15 +54,15 @@
   },
   "devDependencies": {
     "@types/node": "~18.16.1",
-    "@typescript-eslint/eslint-plugin": "~6.0.0",
-    "@typescript-eslint/parser": "~6.0.0",
-    "eslint": "~8.45.0",
-    "eslint-config-prettier": "~8.8.0",
-    "eslint-plugin-prettier": "~5.0.0",
-    "jest": "~29.3.1",
-    "nodemon": "~2.0.22",
+    "@typescript-eslint/eslint-plugin": "~6.10.0",
+    "@typescript-eslint/parser": "~6.10.0",
+    "eslint": "~8.53.0",
+    "eslint-config-prettier": "~9.0.0",
+    "eslint-plugin-prettier": "~5.0.1",
+    "jest": "~29.7.0",
+    "nodemon": "~3.0.1",
     "prettier": "~3.0.3",
-    "tslib": "~2.6.0",
-    "typescript": "~5.1.6"
+    "tslib": "~2.6.2",
+    "typescript": "~5.2.2"
   }
 }

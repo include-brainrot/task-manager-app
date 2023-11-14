@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+
+    /* lib options */
+    "target": "es2022",
+    "module": "esnext",
+
+    /* build options */
+    "noEmit": true,
+    "outDir": "./dist"
+  },
+  "include": ["./src/**/*.ts", "./typings/**/*.d.ts", "../../typings/**/*.d.ts"]
+}
